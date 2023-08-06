@@ -5,14 +5,16 @@ slug: /
 
 # Introduction
 
-## jest-extended 🃏💪
+## vitest-extended
 
-Additional Jest matchers
+Additional Vitest matchers
 
 ## Problem
 
-Jest is an amazing test runner and has some awesome assertion APIs built in by default. However, there are times when having more specific matchers (assertions) would be far more convenient.
+Vitest is an amazing test runner and has some awesome assertion APIs built in by default. However, there are times when having more specific matchers (assertions) would be far more convenient.
 
 ## Solution
 
-jest-extended aims to add additional matchers to Jest's default ones making it easy to test everything 🙌
+vitest-extended aims to add additional matchers to Vitest's default ones making it easy to test everything 🙌
+
+This package is a fork of the wonderful `jest-extended`

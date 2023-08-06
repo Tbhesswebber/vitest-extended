@@ -1,17 +1,17 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import React from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
-import styles from './index.module.css';
-import { TestFile } from '../components/CustomSandpack';
+import styles from "./index.module.css";
+import { TestFile } from "../components/CustomSandpack";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -40,10 +40,10 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <div className={clsx('container', styles.playground)}>
+        <div className={clsx("container", styles.playground)}>
           <h2>Playground</h2>
           <p>
-            All <code>jest-extended</code> matchers are available in this playground. See{' '}
+            All <code>vitest-extended</code> matchers are available in this playground. See{" "}
             <Link to="/docs/matchers">API</Link> for all available matchers.
           </p>
           <TestFile name="playground.test.js">{code}</TestFile>

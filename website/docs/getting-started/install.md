@@ -7,11 +7,17 @@ sidebar_position: 1
 With npm:
 
 ```sh
-npm install --save-dev jest-extended
+npm install --save-dev vitest-extended
 ```
 
 With yarn:
 
 ```sh
-yarn add -D jest-extended
+yarn add -D vitest-extended
+```
+
+With pnpm:
+
+```sh
+pnpm add -D vitest-extended
 ```

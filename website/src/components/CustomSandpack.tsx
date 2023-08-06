@@ -5,10 +5,10 @@ import {
   SandpackLayout as SandpackLayoutDefault,
   SandpackProvider,
   SandpackTests,
-} from '@codesandbox/sandpack-react';
-import React from 'react';
-import { useColorMode } from '@docusaurus/theme-common';
-import { githubLight, dracula } from '@codesandbox/sandpack-themes';
+} from "@codesandbox/sandpack-react";
+import React from "react";
+import { useColorMode } from "@docusaurus/theme-common";
+import { githubLight, dracula } from "@codesandbox/sandpack-themes";
 
 const setup = `import * as matchers from 'jest-extended';
 
@@ -17,13 +17,13 @@ expect.extend(matchers);`;
 export const Sandpack: React.FC<{ files: any }> = props => {
   return (
     <SandpackProvider
-      customSetup={{ entry: 'entry.ts', dependencies: { 'jest-extended': '^3.0.2' } }}
+      customSetup={{ entry: "entry.ts", dependencies: { "vitest-extended": "^0.0.1" } }}
       files={{
-        '/entry.ts': {
-          code: '',
+        "/entry.ts": {
+          code: "",
           hidden: true,
         },
-        '/extended.test.ts': {
+        "/extended.test.ts": {
           code: setup,
           hidden: true,
         },
@@ -42,14 +42,14 @@ export const TestFile: React.FC<{ name: string; children: string }> = props => {
   const { colorMode } = useColorMode();
   return (
     <SandpackProvider
-      theme={colorMode === 'dark' ? dracula : githubLight}
-      customSetup={{ entry: 'entry.js', dependencies: { 'jest-extended': '^3.0.2' } }}
+      theme={colorMode === "dark" ? dracula : githubLight}
+      customSetup={{ entry: "entry.js", dependencies: { "jest-extended": "^3.0.2" } }}
       files={{
-        '/entry.js': {
-          code: '',
+        "/entry.js": {
+          code: "",
           hidden: true,
         },
-        '/extended.test.js': {
+        "/extended.test.js": {
           code: setup,
           hidden: true,
         },
