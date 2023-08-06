@@ -8,8 +8,12 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 const config = {
   title: "vitest-extended",
   tagline: "Additional Vitest matchers",
-  url: "https://jest-extended.jestcommunity.dev",
+  url: "https://tbhesswebber.github.io",
+  organizationName: "tbhesswebber",
+  projectName: "vitest-extended",
+  deploymentBranch: "docs",
   baseUrl: "/",
+  trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
