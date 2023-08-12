@@ -1,17 +1,17 @@
-import { isJestMockOrSpy } from '../utils';
+import { isVitestMockOrSpy } from "../utils";
 
 export function toHaveBeenCalledExactlyOnceWith(received, ...expected) {
   const { printReceived, printExpected, printWithType, matcherHint } = this.utils;
 
-  if (!isJestMockOrSpy(received)) {
+  if (!isVitestMockOrSpy(received)) {
     return {
       pass: false,
       message: () =>
-        matcherHint('.toHaveBeenCalledExactlyOnceWith', 'received', '') +
-        '\n\n' +
-        `Matcher error: ${printReceived('received')} must be a mock or spy function` +
-        '\n\n' +
-        printWithType('Received', received, printReceived),
+        matcherHint(".toHaveBeenCalledExactlyOnceWith", "received", "") +
+        "\n\n" +
+        `Matcher error: ${printReceived("received")} must be a mock or spy function` +
+        "\n\n" +
+        printWithType("Received", received, printReceived),
     };
   }
 
@@ -23,17 +23,17 @@ export function toHaveBeenCalledExactlyOnceWith(received, ...expected) {
     pass,
     message: () => {
       return pass
-        ? matcherHint('.not.toHaveBeenCalledExactlyOnceWith', 'received', '') +
-            '\n\n' +
-            'Expected mock to be invoked some number of times other than once or once with ' +
+        ? matcherHint(".not.toHaveBeenCalledExactlyOnceWith", "received", "") +
+            "\n\n" +
+            "Expected mock to be invoked some number of times other than once or once with " +
             `arguments other than ${printExpected(expected)}, but was invoked ` +
             `${printReceived(received.mock.calls.length)} times with ${printReceived(...actual)}`
-        : matcherHint('.toHaveBeenCalledExactlyOnceWith') +
-            '\n\n' +
+        : matcherHint(".toHaveBeenCalledExactlyOnceWith") +
+            "\n\n" +
             (invokedOnce
-              ? 'Expected mock function to have been called exactly once with ' +
+              ? "Expected mock function to have been called exactly once with " +
                 `${printExpected(expected)}, but it was called with ${printReceived(...actual)}`
-              : 'Expected mock function to have been called exactly once, but it was called ' +
+              : "Expected mock function to have been called exactly once, but it was called " +
                 `${printReceived(received.mock.calls.length)} times`);
     },
     actual: received,

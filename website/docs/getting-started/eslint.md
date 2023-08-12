@@ -2,7 +2,11 @@
 sidebar_position: 4
 ---
 
-# ESLint
+# ESLint (Experimental)
+
+:::caution
+`vite-extended` doesn't have its own ESLint plugin, however `eslint-plugin-jest-extended` will possibly work.
+:::
 
 ## Installation
 

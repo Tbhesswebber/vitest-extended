@@ -7,7 +7,7 @@ sidebar_position: 1
 - [.pass(message)](/docs/matchers/pass)
 - [.fail(message)](/docs/matchers/fail)
 - [.toBeEmpty()](/docs/matchers/tobeempty)
-- [.toBeOneOf([members])](/docs/matchers/tobeoneof)
+- [.toBeOneOf([...members])](/docs/matchers/tobeoneof)
 - [.toBeNil()](/docs/matchers/tobenil)
 - [.toSatisfy(predicate)](/docs/matchers/tosatisfy)
 
