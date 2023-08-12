@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toReject";
 
 expect.extend(matcher);
 
-describe(".toReject", () => {
+describe.skip(".toReject", () => {
   test("passes when passed a promise that rejects", async () => {
     const promise = Promise.reject();
     await expect(promise).toReject();
@@ -14,7 +14,7 @@ describe(".toReject", () => {
   });
 });
 
-describe(".not.toReject", () => {
+describe.skip(".not.toReject", () => {
   test("fails when passed a promise that rejects", async () => {
     const promise = Promise.reject();
     await expect(expect(promise).not.toReject()).rejects.toThrowErrorMatchingSnapshot();

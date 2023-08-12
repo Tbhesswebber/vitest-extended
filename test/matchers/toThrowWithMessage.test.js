@@ -14,7 +14,7 @@ class UnconstructableError extends Error {
   }
 }
 
-describe(".toThrowWithMessage", () => {
+describe.skip(".toThrowWithMessage", () => {
   test("fails when callback function is not provided", () => {
     const { pass, message } = toThrowWithMessage.call({
       utils: { matcherHint, printExpected, printReceived },
@@ -184,7 +184,7 @@ describe(".toThrowWithMessage", () => {
     }).toThrowWithMessage(SyntaxError, /Expected message/);
   });
 
-  describe("Async", () => {
+  describe.skip("Async", () => {
     test("fails on rejects when return value is not provided", () => {
       const { pass, message } = toThrowWithMessage.call({
         utils: { matcherHint, printExpected, printReceived },

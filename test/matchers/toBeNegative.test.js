@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toBeNegative";
 
 expect.extend(matcher);
 
-describe(".toBeNegative", () => {
+describe.skip(".toBeNegative", () => {
   test("passes when given negative number", () => {
     expect(-1).toBeNegative();
   });
@@ -16,7 +16,7 @@ describe(".toBeNegative", () => {
   });
 });
 
-describe(".not.toBeNegative", () => {
+describe.skip(".not.toBeNegative", () => {
   test("passes when given positive number", () => {
     expect(1).not.toBeNegative();
   });

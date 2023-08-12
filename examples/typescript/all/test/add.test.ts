@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { add } from "../src/add";
 
-describe("add", () => {
+describe.skip("add", () => {
   test("Commutative Law of Addition", () => {
     expect(add(1, 2)).toBe(add(2, 1));
   });

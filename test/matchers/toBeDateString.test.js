@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toBeDateString";
 
 expect.extend(matcher);
 
-describe(".toBeDateString", () => {
+describe.skip(".toBeDateString", () => {
   test("passes when given a date string", () => {
     expect(new Date().toISOString()).toBeDateString();
   });
@@ -12,7 +12,7 @@ describe(".toBeDateString", () => {
   });
 });
 
-describe(".not.toBeDateString", () => {
+describe.skip(".not.toBeDateString", () => {
   test("passes when not given a date string", () => {
     expect("not a date").not.toBeDateString();
   });

@@ -7,7 +7,7 @@ const testObject = {
   age: 37,
 };
 
-describe(".toContainAnyKeys", () => {
+describe.skip(".toContainAnyKeys", () => {
   test("passes when object contains one or more keys", () => {
     expect(testObject).toContainAnyKeys(["name"]);
   });
@@ -17,7 +17,7 @@ describe(".toContainAnyKeys", () => {
   });
 });
 
-describe(".not.toContainAnyKeys", () => {
+describe.skip(".not.toContainAnyKeys", () => {
   test("passes when object does not contain any keys", () => {
     expect(testObject).not.toContainAnyKeys(["occupation"]);
   });

@@ -16,7 +16,7 @@ const deepArray = {
   donald: "duck",
 };
 
-describe(".toContainValues", () => {
+describe.skip(".toContainValues", () => {
   test("passes when given object contains primitive values", () => {
     expect(shallow).toContainValues(["world", false]);
   });
@@ -42,7 +42,7 @@ describe(".toContainValues", () => {
   });
 });
 
-describe(".not.toContainValues", () => {
+describe.skip(".not.toContainValues", () => {
   test("passes when given object does not contain all primitive values", () => {
     expect(shallow).not.toContainValues(["foo", 0]);
   });

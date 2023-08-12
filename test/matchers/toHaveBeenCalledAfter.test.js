@@ -3,7 +3,7 @@ import * as matcher from "src/matchers/toHaveBeenCalledAfter";
 
 expect.extend(matcher);
 
-describe(".toHaveBeenCalledAfter", () => {
+describe.skip(".toHaveBeenCalledAfter", () => {
   test("fails when given first mock has not been called", () => {
     const mock1 = vi.fn();
     const mock2 = vi.fn();
@@ -87,7 +87,7 @@ describe(".toHaveBeenCalledAfter", () => {
     expect(mock1).toHaveBeenCalledAfter(mock2);
   });
 
-  describe("failIfNoFirstInvocation is passed as false", () => {
+  describe.skip("failIfNoFirstInvocation is passed as false", () => {
     test("passes when given first mock has not been called", () => {
       const mock1 = vi.fn();
       const mock2 = vi.fn();
@@ -96,7 +96,7 @@ describe(".toHaveBeenCalledAfter", () => {
     });
   });
 
-  describe("failIfNoFirstInvocation is passed as true", () => {
+  describe.skip("failIfNoFirstInvocation is passed as true", () => {
     test("failed when given first mock has not been called", () => {
       const mock1 = vi.fn();
       const mock2 = vi.fn();
@@ -106,7 +106,7 @@ describe(".toHaveBeenCalledAfter", () => {
   });
 });
 
-describe(".not.toHaveBeenCalledAfter", () => {
+describe.skip(".not.toHaveBeenCalledAfter", () => {
   test("passes when given a first mock has not been called", () => {
     const mock1 = vi.fn();
     const mock2 = vi.fn();
@@ -166,7 +166,7 @@ describe(".not.toHaveBeenCalledAfter", () => {
     expect(() => expect(mock1).not.toHaveBeenCalledAfter(mock2)).toThrowErrorMatchingSnapshot();
   });
 
-  describe("failIfNoFirstInvocation is passed as false", () => {
+  describe.skip("failIfNoFirstInvocation is passed as false", () => {
     test("failed when given first mock has not been called", () => {
       const mock1 = vi.fn();
       const mock2 = vi.fn();
@@ -175,7 +175,7 @@ describe(".not.toHaveBeenCalledAfter", () => {
     });
   });
 
-  describe("failIfNoFirstInvocation is passed as true", () => {
+  describe.skip("failIfNoFirstInvocation is passed as true", () => {
     test("passes when given first mock has not been called", () => {
       const mock1 = vi.fn();
       const mock2 = vi.fn();

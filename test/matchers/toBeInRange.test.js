@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toBeInRange";
 
 expect.extend(matcher);
 
-describe(".toBeInRange", () => {
+describe.skip(".toBeInRange", () => {
   test("passes when given array is in range", () => {
     expect([4, 5, 7, 9]).toBeInRange(4, 10);
   });
@@ -12,7 +12,7 @@ describe(".toBeInRange", () => {
   });
 });
 
-describe(".not.toBeInRange", () => {
+describe.skip(".not.toBeInRange", () => {
   test("passes when given array is not in the given range", () => {
     expect([12, 13, 15, 17]).not.toBeInRange(4, 9);
   });

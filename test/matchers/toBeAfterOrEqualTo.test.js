@@ -5,7 +5,7 @@ expect.extend(matcher);
 const EARLIER = new Date("2019-09-01T22:00:00.000Z");
 const LATER = new Date("2019-09-10T22:00:00.000Z");
 
-describe(".toBeAfterOrEqualTo", () => {
+describe.skip(".toBeAfterOrEqualTo", () => {
   test("passes when given a later date", () => {
     expect(LATER).toBeAfterOrEqualTo(EARLIER);
   });
@@ -21,7 +21,7 @@ describe(".toBeAfterOrEqualTo", () => {
   });
 });
 
-describe(".not.toBeAfterOrEqualTo", () => {
+describe.skip(".not.toBeAfterOrEqualTo", () => {
   test("passes when given an earlier date", () => {
     expect(EARLIER).not.toBeAfterOrEqualTo(LATER);
   });

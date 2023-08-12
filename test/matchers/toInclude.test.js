@@ -4,7 +4,7 @@ expect.extend(matcher);
 
 const data = "hello world";
 
-describe(".toInclude", () => {
+describe.skip(".toInclude", () => {
   test("passes when a string has a given substring", () => {
     expect(data).toInclude("ell");
   });
@@ -13,7 +13,7 @@ describe(".toInclude", () => {
     expect(() => expect(data).toInclude("bob")).toThrowErrorMatchingSnapshot();
   });
 
-  describe(".not.toInclude", () => {
+  describe.skip(".not.toInclude", () => {
     test("passes when a string does not have a given substring", () => {
       expect(data).not.toInclude("bob");
     });

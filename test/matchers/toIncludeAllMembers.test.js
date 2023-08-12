@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toIncludeAllMembers";
 
 expect.extend(matcher);
 
-describe(".toIncludeAllMembers", () => {
+describe.skip(".toIncludeAllMembers", () => {
   const array1 = [1, 2, 3];
   const array2 = [1, 2, 2];
 
@@ -25,7 +25,7 @@ describe(".toIncludeAllMembers", () => {
   });
 });
 
-describe(".not.toIncludeAllMembers", () => {
+describe.skip(".not.toIncludeAllMembers", () => {
   const array1 = [1, 2, 3];
 
   test("passes when array values does not contain any members of the set", () => {

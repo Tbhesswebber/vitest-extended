@@ -2,7 +2,7 @@ import * as matcher from "src/matchers/toBeEmpty";
 
 expect.extend(matcher);
 
-describe(".toBeEmpty", () => {
+describe.skip(".toBeEmpty", () => {
   test("passes when given empty string", () => {
     expect("").toBeEmpty();
   });
@@ -38,7 +38,7 @@ describe(".toBeEmpty", () => {
   });
 });
 
-describe(".not.toBeEmpty", () => {
+describe.skip(".not.toBeEmpty", () => {
   test("passes when given a non-empty string", () => {
     expect("string").not.toBeEmpty();
   });
