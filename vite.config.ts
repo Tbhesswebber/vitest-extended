@@ -6,8 +6,8 @@ const config: UserConfig & UserTestConfig = {
   build: {
     lib: {
       entry: {
-        all: resolve(__dirname, "./src/all/index.js"),
-        index: resolve(__dirname, "./src/index.js"),
+        all: resolve(__dirname, "./src/all/index.ts"),
+        index: resolve(__dirname, "./src/index.ts"),
       },
     },
     emptyOutDir: true,
