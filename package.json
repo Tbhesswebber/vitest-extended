@@ -52,6 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "@vitest/coverage-v8": "^0.34.1",
+    "@vitest/expect": "^0.34.1",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^3.6.0",
@@ -79,12 +80,6 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.md": "prettier --write"
-  },
-  "prettier": {
-    "arrowParens": "avoid",
-    "printWidth": 120,
-    "singleQuote": false,
-    "trailingComma": "all"
   },
   "peerDependencies": {
     "vitest": ">=0.32.0"

@@ -1,7 +1,8 @@
 import { DIFF_DELETE, DIFF_EQUAL, DIFF_INSERT } from "jest-diff";
+import type { Diff } from "jest-diff";
 
-export const tokenize = (str: any) => {
-  const isWhitespace = (char: any) => /\s/.test(char);
+export const tokenize = (str: string) => {
+  const isWhitespace = (char: string) => /\s/.test(char);
   const tokens = [];
   let idx = 0;
   let token;
@@ -34,29 +35,45 @@ export const tokenize = (str: any) => {
   return tokens;
 };
 
-const colorTokens = (str: any, color: any) => {
+const colorTokens = (str: string, color: (value: string) => string) => {
   const tokens = tokenize(str);
-  return tokens.reduce((acc, { value, isWhitespace }) => acc + (isWhitespace ? value : color(value)), "");
+  return tokens.reduce(
+    (acc, { value, isWhitespace }) =>
+      acc + (isWhitespace ? value : color(value)),
+    ""
+  );
 };
 
-export const printExpected = (utils: any, diff: any) =>
-  diff.reduce((acc: any, diffObject: any) => {
+export const printExpected = (utils: MatcherUtils, diff: Diff[]) =>
+  diff.reduce((acc: string, diffObject) => {
     const operation = diffObject[0];
     const value = diffObject[1];
 
-    if (operation === DIFF_EQUAL) return acc + colorTokens(value, utils.EXPECTED_COLOR);
+    if (operation === DIFF_EQUAL)
+      return acc + colorTokens(value, utils.EXPECTED_COLOR);
     if (operation === DIFF_DELETE)
-      return acc + colorTokens(value, (str: any) => utils.INVERTED_COLOR(utils.EXPECTED_COLOR(str)));
+      return (
+        acc +
+        colorTokens(value, (str) =>
+          utils.INVERTED_COLOR(utils.EXPECTED_COLOR(str))
+        )
+      );
     return acc;
   }, "");
 
-export const printReceived = (utils: any, diff: any) =>
-  diff.reduce((acc: any, diffObject: any) => {
+export const printReceived = (utils: MatcherUtils, diff: Diff[]) =>
+  diff.reduce((acc: string, diffObject) => {
     const operation = diffObject[0];
     const value = diffObject[1];
 
-    if (operation === DIFF_EQUAL) return acc + colorTokens(value, utils.RECEIVED_COLOR);
+    if (operation === DIFF_EQUAL)
+      return acc + colorTokens(value, utils.RECEIVED_COLOR);
     if (operation === DIFF_INSERT)
-      return acc + colorTokens(value, (str: any) => utils.INVERTED_COLOR(utils.RECEIVED_COLOR(str)));
+      return (
+        acc +
+        colorTokens(value, (str) =>
+          utils.INVERTED_COLOR(utils.RECEIVED_COLOR(str))
+        )
+      );
     return acc;
   }, "");
