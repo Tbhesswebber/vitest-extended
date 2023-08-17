@@ -1,14 +1,14 @@
 import { diffStringsRaw, DIFF_EQUAL } from "jest-diff";
 import { printExpected, printReceived } from "../utils/print";
 
-const removeWhitespace = (str: any) => str.trim().replace(/\s+/g, "");
+const removeWhitespace = (str: string) => str.trim().replace(/\s+/g, "");
 
-const getDiff = (received: any, expected: any) => {
+const getDiff = (received: string, expected: string) => {
   /* calculate diff of received w.r.t expected string */
   const diff = diffStringsRaw(expected, received, false);
 
   /* mark every diff result object with value of white-space as DIFF_EQUAL */
-  diff.forEach(diffObject => {
+  diff.forEach((diffObject) => {
     if (diffObject[1].trim()) return;
     diffObject[0] = DIFF_EQUAL;
   });
@@ -16,7 +16,7 @@ const getDiff = (received: any, expected: any) => {
   return diff;
 };
 
-export function toEqualIgnoringWhitespace(actual: any, expected: any) {
+export function toEqualIgnoringWhitespace(actual: string, expected: string) {
   const { matcherHint, EXPECTED_COLOR } = this.utils;
 
   /* determine whether strings are equal after removing white-space */

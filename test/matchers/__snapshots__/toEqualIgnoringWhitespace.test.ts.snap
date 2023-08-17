@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`.toEqualIgnoringWhitespace > should fail if strings are not equal, ignoring white-space 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toEqualIgnoringWhitespace([22m[32mexpected[39m[2m)[22m
+
+Expected values to be equal while ignoring white-space (using ===):
+Expected:
+  
+        [32mWHERE[39m [32mCONDITION[39m [32m=[39m [32m\\"5\\"[39m 
+        [7m[32mSELECT[39m[27m [7m[32m*[39m[27m [7m[32mfrom[39m[27m [7m[32mTABLE[39m[27m
+      
+
+Received:
+  
+    [7m[31mSELECT[39m[27m [7m[31m*[39m[27m [7m[31mfrom[39m[27m [7m[31mTABLE[39m[27m [31mWHERE[39m [31mCONDITION[39m [31m=[39m [31m\\"5\\"[39m"
+`;
+
+exports[`.toEqualIgnoringWhitespace > should not pass if strings are not equal, ignoring white-space 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).not.toEqualIgnoringWhitespace([22m[32mexpected[39m[2m)[22m
+
+Expected values to not be equal while ignoring white-space (using ===):
+Expected: not  [32m
+            .class { 
+                cssRule: value; 
+            }
+        [39m
+
+"
+`;
+
+exports[`.toEqualIgnoringWhitespace > should pass if strings are equal ignoring white-space 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toEqualIgnoringWhitespace([22m[32mexpected[39m[2m)[22m
+
+Expected values to be equal while ignoring white-space (using ===):
+Expected:
+  [7m[32m#id[39m[27m [32m{[39m [32mcssRule:[39m [32mvalue;[39m [32m}[39m
+
+Received:
+  [7m[31m.class[39m[27m [31m{[39m [31mcssRule:[39m [31mvalue;[39m [31m}[39m"
+`;
