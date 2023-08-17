@@ -1,0 +1,133 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`.not.toBeArrayOfSize > fails when given an array of size 0 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).not.toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to not be an array of size:
+  [32m0[39m
+Received:
+  value: [31mArray [][39m
+  length: [31m0[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given neither a parameter nor an array 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32mundefined[39m
+Received:
+  value: [31mundefined[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mfalse[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 2`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mtrue[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 3`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31m0[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 4`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mObject {}[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 5`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31m[Function anonymous][39m
+  length: [31m0[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 6`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mundefined[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 7`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mnull[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type of %s which is not an array 8`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mNaN[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when given type which is not an array 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m1[39m
+Received:
+  value: [31mfalse[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when not given a parameter 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32mundefined[39m
+Received:
+  value: [31mArray [
+  1,
+][39m
+  length: [31m1[39m"
+`;
+
+exports[`.toBeArrayOfSize > fails when not given an array 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toBeArrayOfSize([22m[32mexpected[39m[2m)[22m
+
+Expected value to be an array of size:
+  [32m5[39m
+Received:
+  value: [31mundefined[39m
+  length: [31m\\"Not Accessible\\"[39m"
+`;

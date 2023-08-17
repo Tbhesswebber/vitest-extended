@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`.not.toStartWith > fails when string starts with given prefix 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).not.toStartWith([22m[32mexpected[39m[2m)[22m
+
+Expected string to not start with:
+  [32m\\"hello\\"[39m
+Received:
+  [31m\\"hello world\\"[39m"
+`;
+
+exports[`.toStartWith > fails when string does not start with the given prefix 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toStartWith([22m[32mexpected[39m[2m)[22m
+
+Expected string to start with:
+  [32m\\"world\\"[39m
+Received:
+  [31m\\"hello world\\"[39m"
+`;
+
+exports[`.toStartWith > fails when the string is shorter than the given prefix 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toStartWith([22m[32mexpected[39m[2m)[22m
+
+Expected string to start with:
+  [32m\\"hello world\\"[39m
+Received:
+  [31m\\"hello\\"[39m"
+`;
