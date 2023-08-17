@@ -7,16 +7,16 @@ describe(".toStartWith", () => {
     expect("hello world").toStartWith("hello");
   });
 
-  test("fails when the string is shorter than the given prefix", (config) => {
-    config
-      .expect(() => expect("hello").toStartWith("hello world"))
-      .toThrowErrorMatchingSnapshot();
+  test("fails when the string is shorter than the given prefix", () => {
+    expect(() =>
+      expect("hello").toStartWith("hello world")
+    ).toThrowErrorMatchingSnapshot();
   });
 
-  test("fails when string does not start with the given prefix", (config) => {
-    config
-      .expect(() => expect("hello world").toStartWith("world"))
-      .toThrowErrorMatchingSnapshot();
+  test("fails when string does not start with the given prefix", () => {
+    expect(() =>
+      expect("hello world").toStartWith("world")
+    ).toThrowErrorMatchingSnapshot();
   });
 });
 
@@ -29,9 +29,9 @@ describe(".not.toStartWith", () => {
     expect("hello").not.toStartWith("hello world");
   });
 
-  test("fails when string starts with given prefix", (config) => {
-    config
-      .expect(() => expect("hello world").not.toStartWith("hello"))
-      .toThrowErrorMatchingSnapshot();
+  test("fails when string starts with given prefix", () => {
+    expect(() =>
+      expect("hello world").not.toStartWith("hello")
+    ).toThrowErrorMatchingSnapshot();
   });
 });
