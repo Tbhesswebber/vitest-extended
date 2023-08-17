@@ -1,4 +1,4 @@
-export function toSatisfyAll(actual: any, expected: any) {
+export function toSatisfyAll<T>(actual: T[], expected: (val: T) => boolean) {
   const { printReceived, printExpected, matcherHint } = this.utils;
 
   const pass = actual.every(expected);
