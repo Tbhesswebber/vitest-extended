@@ -1,4 +1,4 @@
-export function toStartWith(actual: any, expected: any) {
+export function toStartWith(actual: string, expected: string) {
   const { printReceived, printExpected, matcherHint } = this.utils;
 
   const pass = actual.startsWith(expected);
