@@ -25,5 +25,6 @@
     /* Types */
     "types": ["vitest/globals"]
   },
-  "include": ["src", "types", "test", "vite.config.ts"]
+  "include": ["src", "types", "test", "vite.config.ts"],
+  "exclude": ["node_modules/*"]
 }

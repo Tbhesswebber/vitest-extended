@@ -31,7 +31,7 @@
     "test:base": "vitest",
     "test:coverage": "yarn test --coverage",
     "test:watch": "yarn test:base --watch",
-    "typecheck": "tsc --noEmit types/index.d.ts",
+    "typecheck": "tsc --noEmit",
     "dev:docs": "cd website && yarn start"
   },
   "keywords": [

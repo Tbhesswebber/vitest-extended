@@ -1,0 +1,26 @@
+import { contains } from "../utils";
+
+export function toIncludeAllMembers(actual: any, expected: any) {
+  const { printReceived, printExpected, matcherHint } = this.utils;
+
+  const pass =
+    Array.isArray(actual) && Array.isArray(expected) && expected.every(val => contains(this.equals, actual, val));
+
+  return {
+    pass,
+    message: () =>
+      pass
+        ? matcherHint(".not.toIncludeAllMembers") +
+          "\n\n" +
+          "Expected list to not have all of the following members:\n" +
+          `  ${printExpected(expected)}\n` +
+          "Received:\n" +
+          `  ${printReceived(actual)}`
+        : matcherHint(".toIncludeAllMembers") +
+          "\n\n" +
+          "Expected list to have all of the following members:\n" +
+          `  ${printExpected(expected)}\n` +
+          "Received:\n" +
+          `  ${printReceived(actual)}`,
+  };
+}

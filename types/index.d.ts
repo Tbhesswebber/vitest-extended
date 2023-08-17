@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
+import type { Mock } from "vitest";
 interface CustomMatchers<R> extends Record<string, any> {
   /**
    * Note: Currently unimplemented
@@ -146,7 +146,10 @@ interface CustomMatchers<R> extends Record<string, any> {
    * @param {Mock} mock
    * @param {boolean} [failIfNoSecondInvocation=true]
    */
-  toHaveBeenCalledBefore(mock: jest.MockInstance<any, any[]>, failIfNoSecondInvocation: boolean): R;
+  toHaveBeenCalledBefore(
+    mock: Mock<any, any[]>,
+    failIfNoSecondInvocation: boolean
+  ): R;
 
   /**
    * Use `.toHaveBeenCalledAfter` when checking if a `Mock` was called after another `Mock`.
@@ -156,7 +159,10 @@ interface CustomMatchers<R> extends Record<string, any> {
    * @param {Mock} mock
    * @param {boolean} [failIfNoFirstInvocation=true]
    */
-  toHaveBeenCalledAfter(mock: jest.MockInstance<any, any[]>, failIfNoFirstInvocation: boolean): R;
+  toHaveBeenCalledAfter(
+    mock: Mock<any, any[]>,
+    failIfNoFirstInvocation: boolean
+  ): R;
 
   /**
    * Use `.toHaveBeenCalledOnce` to check if a `Mock` was called exactly one time.
@@ -292,21 +298,27 @@ interface CustomMatchers<R> extends Record<string, any> {
    *
    * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
    */
-  toContainEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+  toContainEntries<E = unknown>(
+    entries: readonly (readonly [keyof E, E[keyof E]])[]
+  ): R;
 
   /**
    * Use `.toContainAllEntries` when checking if an object only contains all of the provided entries.
    *
    * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
    */
-  toContainAllEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+  toContainAllEntries<E = unknown>(
+    entries: readonly (readonly [keyof E, E[keyof E]])[]
+  ): R;
 
   /**
    * Use `.toContainAnyEntries` when checking if an object contains at least one of the provided entries.
    *
    * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
    */
-  toContainAnyEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+  toContainAnyEntries<E = unknown>(
+    entries: readonly (readonly [keyof E, E[keyof E]])[]
+  ): R;
 
   /**
    * Use `.toBeExtensible` when checking if an object is extensible.
@@ -387,7 +399,10 @@ interface CustomMatchers<R> extends Record<string, any> {
    * @param {Function} type
    * @param {String | RegExp} message
    */
-  toThrowWithMessage(type: (...args: any[]) => any, message: string | RegExp): R;
+  toThrowWithMessage(
+    type: (...args: any[]) => any,
+    message: string | RegExp
+  ): R;
 
   /**
    * Use `.toBeEmptyObject` when checking if a value is an empty `Object`.
@@ -580,7 +595,10 @@ declare module "vitest" {
      * @param {Mock} mock
      * @param {boolean} [failIfNoSecondInvocation=true]
      */
-    toHaveBeenCalledBefore(mock: jest.MockInstance<any, any[]>, failIfNoSecondInvocation?: boolean): R;
+    toHaveBeenCalledBefore(
+      mock: Mock<any, any[]>,
+      failIfNoSecondInvocation?: boolean
+    ): R;
 
     /**
      * Use `.toHaveBeenCalledAfter` when checking if a `Mock` was called after another `Mock`.
@@ -590,7 +608,10 @@ declare module "vitest" {
      * @param {Mock} mock
      * @param {boolean} [failIfNoFirstInvocation=true]
      */
-    toHaveBeenCalledAfter(mock: jest.MockInstance<any, any[]>, failIfNoFirstInvocation?: boolean): R;
+    toHaveBeenCalledAfter(
+      mock: Mock<any, any[]>,
+      failIfNoFirstInvocation?: boolean
+    ): R;
 
     /**
      * Use `.toHaveBeenCalledOnce` to check if a `Mock` was called exactly one time.
@@ -731,21 +752,27 @@ declare module "vitest" {
      *
      * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
      */
-    toContainEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+    toContainEntries<E = unknown>(
+      entries: readonly (readonly [keyof E, E[keyof E]])[]
+    ): R;
 
     /**
      * Use `.toContainAllEntries` when checking if an object only contains all of the provided entries.
      *
      * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
      */
-    toContainAllEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+    toContainAllEntries<E = unknown>(
+      entries: readonly (readonly [keyof E, E[keyof E]])[]
+    ): R;
 
     /**
      * Use `.toContainAnyEntries` when checking if an object contains at least one of the provided entries.
      *
      * @param {Array.<Array.<keyof E, E[keyof E]>>} entries
      */
-    toContainAnyEntries<E = unknown>(entries: readonly (readonly [keyof E, E[keyof E]])[]): R;
+    toContainAnyEntries<E = unknown>(
+      entries: readonly (readonly [keyof E, E[keyof E]])[]
+    ): R;
 
     /**
      * Use `.toBeExtensible` when checking if an object is extensible.
@@ -831,7 +858,7 @@ declare module "vitest" {
         | (new (...args: any[]) => { message: string })
         | (abstract new (...args: any[]) => { message: string })
         | ((...args: any[]) => { message: string }),
-      message: string | RegExp,
+      message: string | RegExp
     ): R;
 
     /**

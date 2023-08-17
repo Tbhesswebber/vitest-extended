@@ -1,0 +1,28 @@
+import { containsEntry } from "../utils";
+
+export function toContainAllEntries(actual: any, expected: any) {
+  const { printReceived, printExpected, matcherHint } = this.utils;
+
+  const pass =
+    actual.hasOwnProperty &&
+    expected.length == Object.keys(actual).length &&
+    expected.every((entry: any) => containsEntry(this.equals, actual, entry));
+
+  return {
+    pass,
+    message: () =>
+      pass
+        ? matcherHint(".not.toContainAllEntries") +
+          "\n\n" +
+          "Expected object to not only contain all of the given entries:\n" +
+          `  ${printExpected(expected)}\n` +
+          "Received:\n" +
+          `  ${printReceived(actual)}`
+        : matcherHint(".toContainAllEntries") +
+          "\n\n" +
+          "Expected object to only contain all of the given entries:\n" +
+          `  ${printExpected(expected)}\n` +
+          "Received:\n" +
+          `  ${printReceived(actual)}`,
+  };
+}
