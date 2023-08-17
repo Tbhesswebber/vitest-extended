@@ -1,6 +1,6 @@
 import { determinePropertyMessage } from "../utils";
 
-export function toBeArrayOfSize(actual: any, expected: any) {
+export function toBeArrayOfSize(actual: unknown, expected: number) {
   const { printExpected, printReceived, matcherHint } = this.utils;
 
   const pass = Array.isArray(actual) && actual.length === expected;
@@ -15,13 +15,17 @@ export function toBeArrayOfSize(actual: any, expected: any) {
           `  ${printExpected(expected)}\n` +
           "Received:\n" +
           `  value: ${printReceived(actual)}\n` +
-          `  length: ${printReceived(determinePropertyMessage(actual, "length"))}`
+          `  length: ${printReceived(
+            determinePropertyMessage(actual, "length")
+          )}`
         : matcherHint(".toBeArrayOfSize") +
           "\n\n" +
           "Expected value to be an array of size:\n" +
           `  ${printExpected(expected)}\n` +
           "Received:\n" +
           `  value: ${printReceived(actual)}\n` +
-          `  length: ${printReceived(determinePropertyMessage(actual, "length"))}`,
+          `  length: ${printReceived(
+            determinePropertyMessage(actual, "length")
+          )}`,
   };
 }
