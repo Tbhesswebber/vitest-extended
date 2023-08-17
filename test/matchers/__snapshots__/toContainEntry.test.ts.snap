@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`.not.toContainEntry > fails when object contains given entry 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).not.toContainEntry([22m[32mexpected[39m[2m)[22m
+
+Expected object to not contain entry:
+  [32mArray [
+  \\"b\\",
+  \\"bar\\",
+][39m
+Received:
+  [31mObject {
+  \\"a\\": \\"foo\\",
+  \\"b\\": \\"bar\\",
+  \\"c\\": \\"baz\\",
+}[39m"
+`;
+
+exports[`.toContainEntry > fails when object does not contain given entry 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toContainEntry([22m[32mexpected[39m[2m)[22m
+
+Expected object to contain entry:
+  [32mArray [
+  \\"b\\",
+  \\"foo\\",
+][39m
+Received:
+  [31mObject {
+  \\"a\\": \\"foo\\",
+  \\"b\\": \\"bar\\",
+  \\"c\\": \\"baz\\",
+}[39m"
+`;

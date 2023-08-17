@@ -1,6 +1,9 @@
 import { containsEntry } from "../utils";
 
-export function toContainEntry(actual: any, expected: any) {
+export function toContainEntry(
+  actual: Record<string | number | symbol, unknown>,
+  expected: [string | number | symbol, unknown]
+) {
   const { printReceived, printExpected, matcherHint } = this.utils;
 
   const pass = containsEntry(this.equals, actual, expected);
