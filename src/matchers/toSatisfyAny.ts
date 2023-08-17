@@ -1,4 +1,4 @@
-export function toSatisfyAny(actual: any, expected: any) {
+export function toSatisfyAny<T>(actual: T[], expected: (val: T) => boolean) {
   const { printReceived, printExpected, matcherHint } = this.utils;
 
   const pass = actual.some(expected);
