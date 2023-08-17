@@ -1,17 +1,20 @@
-const predicate = (error: any, type: any, message: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ConcreteErrorClass = { new (...args: any[]): Error };
+
+const predicate = (error: Error, type: ConcreteErrorClass, message: string | RegExp) => {
   if (message instanceof RegExp) {
     return error && error instanceof type && message.test(error.message);
   }
   return error && error instanceof type && error.message === message;
 };
 
-const positiveHint = (utils: any) =>
+const positiveHint = (utils: MatcherUtils) =>
   utils.matcherHint(".toThrowWithMessage", "function", "type", { secondArgument: "message" });
 
-const negativeHint = (utils: any) =>
+const negativeHint = (utils: MatcherUtils) =>
   utils.matcherHint(".not.toThrowWithMessage", "function", "type", { secondArgument: "message" });
 
-const passMessage = (utils: any, received: any, expected: any) =>
+const passMessage = (utils: MatcherUtils, received: unknown, expected: Error) =>
   negativeHint(utils) +
   "\n\n" +
   "Expected not to throw:\n" +
@@ -19,7 +22,7 @@ const passMessage = (utils: any, received: any, expected: any) =>
   "Thrown:\n" +
   `  ${utils.printReceived(received)}\n`;
 
-const failMessage = (utils: any, received: any, expected: any) =>
+const failMessage = (utils: MatcherUtils, received: unknown, expected: Error) =>
   positiveHint(utils) +
   "\n\n" +
   "Expected to throw:\n" +
@@ -27,7 +30,7 @@ const failMessage = (utils: any, received: any, expected: any) =>
   "Thrown:\n" +
   `  ${utils.printReceived(received)}\n`;
 
-const getExpectedError = (type: any, message: any) => {
+const getExpectedError = (type: ConcreteErrorClass, message: string | RegExp) => {
   const messageStr = message.toString();
   let expectedError;
   try {
@@ -41,16 +44,23 @@ const getExpectedError = (type: any, message: any) => {
   return expectedError;
 };
 
-export function toThrowWithMessage(callbackOrPromiseReturn: any, type: any, message: any) {
+export function toThrowWithMessage(
+  promiseReturnOrCallback: () => unknown | Awaited<Error>,
+  type: ConcreteErrorClass,
+  message: string | RegExp,
+) {
   const utils = this.utils;
-  const isFromReject = this && this.promise === "rejects"; // See https://github.com/facebook/jest/pull/7621#issue-244312550
-  if ((!callbackOrPromiseReturn || typeof callbackOrPromiseReturn !== "function") && !isFromReject) {
+  const isFromReject = (val: unknown): val is Awaited<Error> => this && this.promise === "rejects"; // See https://github.com/facebook/jest/pull/7621#issue-244312550
+  if (
+    (!promiseReturnOrCallback || typeof promiseReturnOrCallback !== "function") &&
+    !isFromReject(promiseReturnOrCallback)
+  ) {
     return {
       pass: false,
       message: () =>
         positiveHint(utils) +
         "\n\n" +
-        `Received value must be a function but instead "${callbackOrPromiseReturn}" was found`,
+        `Received value must be a function but instead "${promiseReturnOrCallback}" was found`,
     };
   }
 
@@ -80,12 +90,12 @@ export function toThrowWithMessage(callbackOrPromiseReturn: any, type: any, mess
     };
   }
 
-  let error: any;
-  if (isFromReject) {
-    error = callbackOrPromiseReturn;
+  let error: Error;
+  if (isFromReject(promiseReturnOrCallback)) {
+    error = promiseReturnOrCallback;
   } else {
     try {
-      callbackOrPromiseReturn();
+      promiseReturnOrCallback();
     } catch (e) {
       error = e;
     }

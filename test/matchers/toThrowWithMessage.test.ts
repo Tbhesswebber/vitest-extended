@@ -1,11 +1,11 @@
 import { matcherHint, printExpected, printReceived } from "jest-matcher-utils";
-import * as matcher from "src/matchers/toThrowWithMessage";
+import * as matcher from "../../src/matchers/toThrowWithMessage";
 const { toThrowWithMessage } = matcher;
 
 expect.extend(matcher);
 
 class UnconstructableError extends Error {
-  constructor(message) {
+  constructor(message: number) {
     if (typeof message !== "number") {
       throw new TypeError("Expected number arg");
     }
@@ -30,7 +30,7 @@ describe.skip(".toThrowWithMessage", () => {
   });
 
   test("fails when error message is not provided", () => {
-    const callback = () => {};
+    const callback = (): void => undefined;
     const { pass, message } = toThrowWithMessage.call(
       { utils: { matcherHint, printExpected, printReceived } },
       callback,
@@ -41,7 +41,8 @@ describe.skip(".toThrowWithMessage", () => {
   });
 
   test("fails when error type is not provided", () => {
-    const callback = () => {};
+    const callback = (): void => undefined;
+
     const { pass, message } = toThrowWithMessage.call(
       { utils: { matcherHint, printExpected, printReceived } },
       callback,
@@ -51,7 +52,8 @@ describe.skip(".toThrowWithMessage", () => {
   });
 
   test("fails when error message provided is not a string or regex", () => {
-    const callback = () => {};
+    const callback = (): void => undefined;
+
     const { pass, message } = toThrowWithMessage.call(
       { utils: { matcherHint, printExpected, printReceived } },
       callback,
@@ -63,7 +65,8 @@ describe.skip(".toThrowWithMessage", () => {
   });
 
   test("fails when a callback provided doesnt throw an error", () => {
-    const callback = () => {};
+    const callback = (): void => undefined;
+
     const { pass, message } = toThrowWithMessage.call(
       { utils: { matcherHint, printExpected, printReceived } },
       callback,
